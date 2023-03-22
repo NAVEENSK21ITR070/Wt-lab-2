@@ -1,0 +1,131 @@
+<!Doctype html>
+<html>
+<head>
+    <style>
+        .hh{
+            height:1100px;
+            width:70%;
+            border:3px outset rgb(108, 33, 33);
+            background-color: rgba(252, 68, 68, 0.896);
+            text-align: left;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+    <title>HTML FORMS</title>
+</head>
+
+<body>
+    <center><img src="https://thalappakatti.com/wp-content/uploads/2018/01/thalappakatti-logo-anim.gif"></center>
+<center><h1 style="color: rgba(149, 32, 32, 0.922);">THALAPPAKATTI</h1></center>
+<form name="f1" onsubmit="fun()">
+<div class="hh">
+<fieldset>
+    <legend><h1 style="color:rgba(154, 12, 12, 0.834)" >CHEF INFO</h1></legend>
+
+    FirstName: <input type="text" placeholder="Enter your first name" required id="fname" name="fname" pattern=[a-zA-Z]{3,} AUTOFOCUS><br><br>
+    LastName: <input type="text"  placeholder="Enter your last name"required id="lname" name="lname" pattern=[a-zA-Z]{3,}><br><br>
+    Email id: <input type="text"  placeholder="Enter your email-address" required  id="email" name="email"><br><br>
+    Phone number: <input type="text" placeholder="Enter your phone number" name ="ph" pattern=[0-9]{10} ><br><br>
+    Date Of Birth: <input type="date" placeholder="Enter your date of birth" required><br><br>
+    Age: <input type="Number" placeholder="Enter your age" name="age" maxlength="3" required><br><br>
+    
+    
+    <fieldset>
+    <legend><h3 style="color:Black" > YEAR OF EXPERIENCE:</h3></legend>
+    <input type="radio" id="m" name="m" value="oex"><label>1</label><br>
+        <input type="radio" id="f" name="f" value="texp"><label>2</label><br<br><br>
+        <input type="radio" id="o" name="m" value="trexp"><label>3</label><br>
+        <input type="radio" id="l" name="f" value="fexp"><label>4+</label>
+    </fieldset>
+    <br><br>
+    
+    State: <input type="text" name="state" value="TamilNadu" disabled><br><br>
+    <label>City</label>
+    <select name="City">
+    <option value="Chennai">Chennai</option>
+    <option value="Coimbatore">Coimbatore</option>
+    <option value="Erode">Erode</option>
+    <option value="Hosur">Hosur</option>
+  </select>
+  <br><br>
+    
+    <fieldset>
+    <legend><h3 style="color:Black" >Address:</h3></legend>
+    <textarea name="Address" rows="5" cols="50" placeholder="Enter your address" name="address" required></textarea><br><br>
+    </fieldset>
+    <br><br>
+<fieldset>
+<legend>Profile Photo:</legend><br>
+<input type="file" name="myfile">
+</fieldset><br>
+
+<fieldset>
+    <legend>Cerificates</legend><br>
+    <input type="file" name="myfile">
+    </fieldset><br>
+
+
+
+<center><input type="checkbox" id="dec" name="dec">I Hereby Declare that the above given statements are true<br><br>
+<br><br><input type="button" value="Submit" onclick="fun()"></center>
+
+</form>
+<script>
+    function fun() {
+    var fname = document.forms[0]["fname"].value;
+    var lname = document.forms[0]["lname"].value;
+    var email = document.forms[0]["email"].value;
+    
+    var agee=document.forms[0]["age"].value;
+    var phn=document.forms[0]["ph"].value;
+    var gm=document.f1.m.value;
+   var gf=document.f1.f.value;
+   var d=document.f1.dec.value;
+
+    
+    if (fname == "") {
+    alert("First Name must be filled out");
+    return false;
+    }
+    
+    if (lname == "") {
+    alert("Last Name must be filled out");
+    return false;
+    }
+    
+    
+    if (!email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    alert("Enter the valid Email");
+    return false;
+    }
+    if (email=="") {
+    alert("Email must be filled out");
+    return false;
+    }
+
+    if(phn.length<10 || phn.length>10){
+        alert("Phone number should be of 10 digits");
+    return false;
+    }
+    
+    if(agee==""){
+        alert("Age must be filled out");
+        return false;
+    }
+
+    if(document.f1.m.checked==0 && document.f1.f.checked==0){
+        alert("Gender must be selected");
+        return false;
+    }
+
+  
+    
+    
+    alert("Registration Successful!");
+    
+    }
+    </script>
+</body>
+
+</html>
